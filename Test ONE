@@ -8,17 +8,26 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String dateStart = "01/14/2012";
-        String dateStop = "01/15/2012";
+        String firstDate = "01/14/2012";
+        String secondDate = "01/15/2012";
 
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+
+        System.out.println("Enter your first calendar date here (dd mm yyyy): ");
+        Scanner userInput = new Scanner(System.in);
+        firstDate = userInput.nextLine();
+
+        System.out.println("Enter your second calendar date here (dd mm yyyy): ");
+        Scanner userInputTwo = new Scanner(System.in);
+        secondDate = userInputTwo.nextLine();
+
 
         Date d1 = null;
         Date d2 = null;
 
         try {
-            d1 = format.parse(dateStart);
-            d2 = format.parse(dateStop);
+            d1 = format.parse(firstDate);
+            d2 = format.parse(secondDate);
 
             long diff = d2.getTime() - d1.getTime();
 
@@ -30,7 +39,6 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
     }
 
