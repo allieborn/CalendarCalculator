@@ -1,2 +1,2 @@
-# Deliverable-TWO
-Java 2017
+# DeliverableTWO
+Java, April 2017, Grand Circus Bootcamp
