@@ -12,6 +12,7 @@ public class Main {
         int day2;
         int year1;
         int year2;
+        //establishes all variables for calcuation
 
         Scanner scanner = new Scanner(System.in);
 
@@ -20,6 +21,7 @@ public class Main {
         month1 = scanner.nextInt();
         day1 = scanner.nextInt();
         year1 = scanner.nextInt();
+        //scanner will pick up date entered by user (must be entered in proper format, as specified) and assign to each variable
 
 
         System.out.println("Enter second calendar date (MM DD YYYY):");
@@ -27,20 +29,25 @@ public class Main {
         month2 = scanner.nextInt();
         day2 = scanner.nextInt();
         year2 = scanner.nextInt();
+        //(same as previous comment)
 
 
         int date1 = (year1 * 365 + month1 * 30) + day1;
         int date2 = (year2 * 365 + month2 * 30) + day2;
+        //creates two new variables, which will be equiavalent of each date entered, converted to days (assuming 365/year and 30/mo)
 
         int durationdifferance = date2 - date1;
+        //calculates number of days between two user entered dates
 
 
         int year = durationdifferance / 356;
         int month = (durationdifferance % 365) / 30;
         int day = (durationdifferance % 365) % 30;
+        //uses division and modulus to create an even year, month and day
 
 
         System.out.println("Differance is: " + year + " year(s)," + " " + month + " month(s) and" + " " + day + " day(s).");
+        //system prints out time difference once prior calculation (above) is run
     }
 }
 
