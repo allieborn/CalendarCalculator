@@ -1,29 +1,45 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+package com.company;
 
-public class Test001 {
+import java.util.Scanner;
 
-    public static void main(String[] args) throws Exception {
+public class Main {
 
-        BufferedReader br = null;
+    public static void main(String[] args) {
+        
+        int month1;
+        int month2;
+        int day1;
+        int day2;
+        int year1;
+        int year2;
 
-        br = new BufferedReader(new InputStreamReader(System.in));
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Insert first date : ");
-        Date dt1 = sdf.parse(br.readLine().trim());
+        System.out.println("Enter first calendar date here (MM DD YYYY):");
 
-        System.out.println("Insert second date : ");
-        Date dt2 = sdf.parse(br.readLine().trim());
+        month1 = scanner.nextInt();
+        day1 = scanner.nextInt();
+        year1 = scanner.nextInt();
 
-        long diff = dt2.getTime() - dt1.getTime();
 
-        System.out.println("Days: " + diff / 1000L / 60L / 60L / 24L);
+        System.out.println("Enter second calendar date here (MM DD YYYY):");
 
-        if (br != null) {
-            br.close();
-        }
+        month2 = scanner.nextInt();
+        day2 = scanner.nextInt();
+        year2 = scanner.nextInt();
+
+
+        int date1 = (year1 * 365 + month1 * 30) + day1;
+        int date2 = (year2 * 365 + month2 * 30) + day2;
+
+        int durationdifferance = date2 - date1;
+
+
+        int year = durationdifferance / 356;
+        int month = (durationdifferance % 365) / 30;
+        int day = (durationdifferance % 365) % 30;
+
+
+        System.out.println("Differance is: " + year + " year(s)," + " " + month + " month(s) and" + " " + day + " day(s)");
     }
 }
